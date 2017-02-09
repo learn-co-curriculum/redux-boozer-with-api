@@ -23,6 +23,7 @@ export function createCocktail(params){
       type: 'CREATE_COCKTAIL',
       payload: cocktail
     }
+    // FETCH IS HAPPENING
 }
 
 export function updateCurrentCocktail(cocktailId){
