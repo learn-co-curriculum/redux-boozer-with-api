@@ -10,19 +10,19 @@ export function fetchCocktails(){
 }
 
 export function createCocktail(params){
-  console.log(params)
-  const cocktail = fetch(`${BASE_URL}/cocktails`,
+  let cocktail = fetch(`${BASE_URL}/cocktails`,
     {method: 'POST',
     body: JSON.stringify(params),
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    }}).then(res => res.json())
-
-  return {
-    type: 'CREATE_COCKTAIL',
-    payload: params.cocktail
-  }
+    }}).then(function(res){
+      return res.json()
+    })
+    return {
+      type: 'CREATE_COCKTAIL',
+      payload: cocktail
+    }
 }
 
 export function updateCurrentCocktail(cocktailId){

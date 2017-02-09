@@ -37,8 +37,12 @@ class CocktailsIndex extends React.Component {
 }
 
 function mapStateToProps(state){
-  return {
-    cocktails: state.cocktails
+  if (state.cocktails){
+    return {
+      cocktails: state.cocktails
+    }
+  } else {
+    return {cocktails: [{name: "", description: "", instructions: ""}] }
   }
 }
 
