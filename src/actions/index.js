@@ -23,3 +23,10 @@ export function createCocktail(params){
     payload: params.cocktail
   }
 }
+
+export function updateCurrentCocktail(cocktailId){
+  return{
+    type: 'UPDATE_CURRENT_COCKTAIL',
+    payload: cocktailId
+  }
+}
