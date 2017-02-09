@@ -10,16 +10,25 @@ export function fetchCocktails(){
 }
 
 export function createCocktail(params){
-  const cocktail = fetch(`${BASE_URL}/cocktails`,
+  let cocktail = fetch(`${BASE_URL}/cocktails`,
     {method: 'POST',
     body: JSON.stringify(params),
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    }});
+    }}).then(function(res){
+      return res.json()
+    })
+    return {
+      type: 'CREATE_COCKTAIL',
+      payload: cocktail
+    }
+    // FETCH IS HAPPENING
+}
 
-  return {
-    type: 'CREATE_COCKTAIL',
-    payload: params.cocktail
+export function updateCurrentCocktail(cocktailId){
+  return{
+    type: 'UPDATE_CURRENT_COCKTAIL',
+    payload: cocktailId
   }
 }
