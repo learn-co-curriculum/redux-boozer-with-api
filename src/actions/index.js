@@ -10,13 +10,14 @@ export function fetchCocktails(){
 }
 
 export function createCocktail(params){
+  console.log(params)
   const cocktail = fetch(`${BASE_URL}/cocktails`,
     {method: 'POST',
     body: JSON.stringify(params),
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    }});
+    }}).then(res => res.json())
 
   return {
     type: 'CREATE_COCKTAIL',

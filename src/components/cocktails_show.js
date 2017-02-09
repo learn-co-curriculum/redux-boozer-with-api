@@ -1,5 +1,6 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from 'react'
+import {connect} from 'react-redux'
+import { updateCurrentCocktail, fetchCocktails } from '../actions'
 
 function CocktailsShow (props) {
   const cocktail = props.cocktail;
@@ -19,7 +20,7 @@ function CocktailsShow (props) {
     </div>);
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state){
   const cocktail = state.cocktails.find(cocktail => cocktail.id == state.currentCocktail) || {}
   return {
     cocktail: cocktail

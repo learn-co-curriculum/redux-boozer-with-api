@@ -17,8 +17,8 @@ class CocktailCreate extends React.Component {
 
   handleSubmit(event){
     event.preventDefault()
-    this.props.addCocktail(this.state.cocktail)
-    this.setState({cocktail: ''})
+    this.props.createCocktail(this.state.cocktail)
+    this.setState({cocktail: { name:'', description:'', instructions:''}})
   }
 
   handleInput(key, event){
@@ -44,8 +44,8 @@ class CocktailCreate extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return{
-    addCocktail : function(cocktail){
-      let action = addCocktail(cocktail)
+    createCocktail : function(cocktail){
+      let action = createCocktail(cocktail)
       dispatch( action )
     }
   }
